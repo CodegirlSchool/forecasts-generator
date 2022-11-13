@@ -41,8 +41,7 @@ getPredictions.addEventListener('click', () => {
 
     if (predictionRandom === 1) {
         currentForecastText.append(predictionLove);
-        currentForecastPercent.append(percent + randomGeneration(0, 100)/* Добавить сюда проценты при помощи str.endsWith(substr)*,
-        показыват почему то обьект вместо percent-вероятность*/ );
+        currentForecastPercent.append(percent + randomGeneration(0, 100));
 
     } else if (predictionRandom === 2) {
         currentForecastText.append(predictionJob);
@@ -55,8 +54,8 @@ getPredictions.addEventListener('click', () => {
 
     const prediction = currentForecastText;
     const predictionPercentage = currentForecastPercent;
-    makeCardTemplate(prediction, predictionPercentage);
-
+    const textCard = makeCardTemplate(prediction, predictionPercentage);
+    content.preppand(textCard);
 })
 
 function randomGeneration(min, max) {
