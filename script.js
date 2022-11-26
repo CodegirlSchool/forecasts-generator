@@ -18,6 +18,8 @@ const currentForecast = document.querySelector('.current-forecast');
 const currentForecastText = currentForecast.querySelector('h1');
 const currentForecastPercent = currentForecast.querySelector('p');
 
+const currentForecastItem = document.querySelector('.forecasts');
+
 const percent =  document.createElement('div');
 percent.classList.add('current-forecast');
 percent.textContent = 'Вероятность';
@@ -34,29 +36,32 @@ const predictionJS = document.createElement('div');
 predictionJS.classList.add('current-forecast');
 predictionJS.textContent = 'В этом году ты освоишь JS!';
 
-const getPredictions = document.querySelector(".forecast-btn");
+const getPredictions = document.querySelector('.forecast-btn');
 
 getPredictions.addEventListener('click', () => {
     let predictionRandom = randomGeneration(1, 3);
 
     if (predictionRandom === 1) {
         currentForecastText.append(predictionLove);
-        currentForecastPercent.append(percent + randomGeneration(0, 100));
+        currentForecastPercent.append(`${percent.textContent} ${randomGeneration(0, 100)} %`);
 
     } else if (predictionRandom === 2) {
         currentForecastText.append(predictionJob);
-        currentForecastPercent.append(percent + randomGeneration(0, 100));
+        currentForecastPercent.append(`${percent.textContent} ${randomGeneration(0, 100)} %`);
 
     } else if (predictionRandom === 3) {
         currentForecastText.append(predictionJS);
-        currentForecastPercent.append(percent + randomGeneration(0, 100));
-    }
-
-    const prediction = currentForecastText;
-    const predictionPercentage = currentForecastPercent;
-    const textCard = makeCardTemplate(prediction, predictionPercentage);
-    content.preppand(textCard);
+        currentForecastPercent.append(`${percent.textContent} ${randomGeneration(0, 100)} %`);
+    } 
+       return  currentForecastText, currentForecastPercent;
+    
 })
+
+const savedCurrentForecastText =  currentForecastText;
+const savedCurrentForecastPercent = currentForecastPercent;
+
+const textCard = makeCardTemplate(savedCurrentForecastText, savedCurrentForecastPercent);
+currentForecastItem.prepand(textCard);
 
 function randomGeneration(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -66,8 +71,8 @@ const cardTemplate = document.querySelector("#forecast-item");
 
 function makeCardTemplate(prediction, predictionPercentage) {
     const myCard = cardTemplate.content.cloneNode(true);
-    myCard.querySelector(h1).textContent = prediction;
-    myCard.querySelector(p).textContent = predictionPercentage;
+    myCard.querySelector('h3').textContent = prediction;
+    myCard.querySelector('p').textContent = predictionPercentage;
     return myCard;
 }
 
