@@ -53,15 +53,19 @@ getPredictions.addEventListener('click', () => {
         currentForecastText.append(predictionJS);
         currentForecastPercent.append(`${percent.textContent} ${randomGeneration(0, 100)} %`);
     } 
-       return  currentForecastText, currentForecastPercent;
+    const savedCurrentForecastText =  currentForecastText.textContent;
+    const savedCurrentForecastPercent = currentForecastPercent.textContent;
+    currentForecastText.textContent ='';
+    currentForecastPercent.textContent ='';
+
+    const textCard = makeCardTemplate(savedCurrentForecastText, savedCurrentForecastPercent);
+
+    return currentForecastItem.prepend(textCard);
+   
     
 })
 
-const savedCurrentForecastText =  currentForecastText;
-const savedCurrentForecastPercent = currentForecastPercent;
 
-const textCard = makeCardTemplate(savedCurrentForecastText, savedCurrentForecastPercent);
-currentForecastItem.prepand(textCard);
 
 function randomGeneration(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
