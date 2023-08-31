@@ -1,4 +1,9 @@
 /* Генерация предсказания должна происходить при клике на кнопку «предсказать судьбу» */
+const button = document.querySelector('.forecast-btn');
+const header = document.querySelector('h1');
+const description = document.querySelector('p');
+
+
 
 /* Заранее заготовь 3-5 предсказаний и в зависимости от того, как лягут карты судьбы (или что скажет Math.random) показывай их пользователю */
 
