@@ -3,6 +3,10 @@ const button = document.querySelector('.forecast-btn');
 const header = document.querySelector('h1');
 const description = document.querySelector('p');
 
+function generateRandomCard {
+    return;
+}
+
 
 let prediction = '';
 switch(prediction) {
@@ -26,8 +30,8 @@ switch(prediction) {
         prediction = 'Ждет много интересных приключений.';
         break;
 
-        default: 
-        prediction = 'Предсказаний больше нет'ж
+    default: 
+        prediction = 'Предсказаний больше нет';
         break;
 
 }
