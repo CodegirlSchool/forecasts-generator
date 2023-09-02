@@ -3,9 +3,11 @@ const button = document.querySelector('.forecast-btn');
 const header = document.querySelector('h1');
 const description = document.querySelector('p');
 
-function generateRandomCard {
-    return;
+function generateRandomCard(min, max) {
+    const random = Math.random() * (max - min) + min;
+    return +random.toFixed(0);
 }
+
 
 
 let prediction = '';
