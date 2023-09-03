@@ -10,6 +10,7 @@ function generateRandomCard(min, max) {
 
 
 
+
 let prediction = '';
 switch(prediction) {
     case '1':
