@@ -1,29 +1,31 @@
 /* Генерация предсказания должна происходить при клике на кнопку «предсказать судьбу» */
-const button = document.querySelector('.forecast-btn');
-const header = document.querySelector('h1');
-const description = document.querySelector('p');
-const container = document.querySelector('.forecasts');
-const forecastItem = document.querySelector('.forecast-item');
 
-function generateRandomCard(min, max) {
-    const random = Math.random() * (max - min) + min;
-    return +random.toFixed(0);
-}
+const button = document.querySelector('.forecast-btn'); //кнопка
+const header = document.querySelector('h1'); //заголовок предсказания
+const description = document.querySelector('p'); //содержание предсказания
+const container = document.querySelector('.forecasts'); // карточка
+const forecastItem = document.querySelector('.forecast-item'); //шаблон карточки
 
+
+//  кнопка
 button.addEventListener('click', function() {
     function 
 })
 
+// генерация числа карточек 
 function getRandomCase(min, max) {
     getRandomCase(1, 5);
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// генерация числа для вероятности в процентах
 function getRandomProcent(min, max) {
     getRandomProcent(1, 100);
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
+// карточки с предсказаниями
 let prediction = '';
 switch(getRandomCase) {
     case '1':
