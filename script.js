@@ -2,17 +2,30 @@
 const button = document.querySelector('.forecast-btn');
 const header = document.querySelector('h1');
 const description = document.querySelector('p');
+const container = document.querySelector('.forecasts');
+const forecastItem = document.querySelector('.forecast-item');
 
 function generateRandomCard(min, max) {
     const random = Math.random() * (max - min) + min;
     return +random.toFixed(0);
 }
 
+button.addEventListener('click', function() {
+    function 
+})
 
+function getRandomCase(min, max) {
+    getRandomCase(1, 5);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
+function getRandomProcent(min, max) {
+    getRandomProcent(1, 100);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
 let prediction = '';
-switch(prediction) {
+switch(getRandomCase) {
     case '1':
         prediction = 'Тебя ожидает интересная поездка.';
         break;
