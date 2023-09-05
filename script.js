@@ -1,5 +1,60 @@
 /* Генерация предсказания должна происходить при клике на кнопку «предсказать судьбу» */
 
+const button = document.querySelector('.forecast-btn'); //кнопка
+const header = document.querySelector('h1'); //заголовок предсказания
+const description = document.querySelector('p'); //содержание предсказания
+const container = document.querySelector('.forecasts'); // карточка
+const forecastItem = document.querySelector('.forecast-item'); //шаблон карточки
+
+
+//  кнопка
+button.addEventListener('click', function() {
+    
+})
+
+// генерация числа карточек 
+function getRandomCase(min, max) {
+    getRandomCase(1, 5);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+// генерация числа для вероятности в процентах
+function getRandomProcent(min, max) {
+    getRandomProcent(1, 100);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+// карточки с предсказаниями
+let prediction = '';
+switch(getRandomCase) {
+    case '1':
+        prediction = 'Тебя ожидает интересная поездка.';
+        break;
+    
+    case '2':
+        prediction = 'Будешь много плакать, но только от радости.';
+        break;
+    
+    case '3':
+        prediction = 'Успешным будет любое начатое дело.';
+        break;
+
+    case '4':
+        prediction = 'Посвяти больше времени себе.';
+        break;
+
+    case '5':
+        prediction = 'Ждет много интересных приключений.';
+        break;
+
+    default: 
+        prediction = 'Предсказаний больше нет';
+        break;
+
+}
+
+
 /* Заранее заготовь 3-5 предсказаний и в зависимости от того, как лягут карты судьбы (или что скажет Math.random) показывай их пользователю */
 
 /* Подставляй текст нового предсказания в .current-forecast h1 */
