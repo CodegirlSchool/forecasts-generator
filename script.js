@@ -9,7 +9,7 @@ const forecastItem = document.querySelector('.forecast-item'); //шаблон к
 
 //  кнопка
 button.addEventListener('click', function() {
-    function 
+    
 })
 
 // генерация числа карточек 
