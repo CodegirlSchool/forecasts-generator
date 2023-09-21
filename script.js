@@ -13,3 +13,56 @@
 /* При генерации нового предсказания старое предсказание должно добавляться в начало списка «Мои предсказания» — .forecasts  */
 
 /* Для добавления предсказания в список воспользуйся шаблоном forecast-item */
+
+const predictions = ["Вечером тебя ждет неожиданная и приятная встреча", 
+
+"Ты найдешь вещь, которую потерял", 
+
+"В этом году тебя ждет повышение", 
+
+"Сегодня будет прекрасный день",
+
+"Тебя ждет удивительное путешествие"];
+
+
+let firstClick = false;
+
+ const cardTemplate = document.querySelector('#forecast-item');
+
+ const container = document.querySelector('.container');
+
+ const button = document.querySelector('.forecast-btn');
+
+
+ button.addEventListener('click', () => {
+    const prediction = document.querySelector('h1');
+    const probability = document.querySelector("p");
+
+    const card = makeCardByTemplate(prediction, probability);
+
+    container.append(card);
+
+    if (firstClick == true) {
+        container.append(card);
+    };
+
+
+    prediction.textContent = predictions[generateRandomValue(0, 5)];
+    probability.textContent = probabilitygenerateRandomValue(0, 10);
+
+    firstClick = true;
+ });
+
+ function makeCardByTemplate(prediction, probability) {
+    
+    const myCard = cardTemplate.content.cloneNode(true);
+
+    myCard.querySelector('h3').textContent = prediction.textContent;
+    myCard.querySelector('p') == probability.textContent;
+
+    return myCard;
+ };
+
+ function generateRandomValue(min, max) {
+    return Math.floor(Math.random() * (max - min +1) + min)
+ };
