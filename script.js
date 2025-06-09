@@ -1,15 +1,39 @@
-/* Генерация предсказания должна происходить при клике на кнопку «предсказать судьбу» */
+function forecastGenerate (min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
 
-/* Заранее заготовь 3-5 предсказаний и в зависимости от того, как лягут карты судьбы (или что скажет Math.random) показывай их пользователю */
+const buttonClick = document.querySelector('.forecast-btn');
+buttonClick.addEventListener('click', function(){
+    const predictionNumber = forecastGenerate(1, 5);
+    let predictionText = "";
+    if (predictionNumber == 1) {
+        predictionText = "Сегодня тебя ждёт приятный сюрприз!";
+    } else if (predictionNumber == 2) {
+        predictionText = "У тебя обязательно всё получится!";
+    } else if (predictionNumber == 3) {
+        predictionText = "Ты обязательно выучишь JavaScript!"; 
+    } else {
+        predictionText = "Тебя ждёт хорошо проведённый вечер в приятной компании!";
+    }
+    const title = document.querySelector('.current-forecast h1');
+    title.textContent = predictionText;
+    console.log(title);
 
-/* Подставляй текст нового предсказания в .current-forecast h1 */
+    const percent = forecastGenerate(0, 100);
+    const paragraph = document.querySelector('.current-forecast p');
+    paragraph.textContent = percent + '%';
 
-/* Показывай процент вероятности, с которым предсказание сбудется — в верстке это .current-forecast p */
-
-/* Данный процент также нужно генерировать автоматически, он может принимать значения от 0 до 100% */
-
-/* Совет: заведи функцию-хелпер, которая будет заниматься только генерацией данных в диапазоне от min до max и используй ее где нужно */
-
-/* При генерации нового предсказания старое предсказание должно добавляться в начало списка «Мои предсказания» — .forecasts  */
-
-/* Для добавления предсказания в список воспользуйся шаблоном forecast-item */
+    buttonClick.addEventListener('click', function(){
+        const card = document.querySelector('#forecast-item');
+        function makeCard (prediction, predictionPercent) {
+            const myCard = card.content.cloneNode(true);
+            myCard.querySelector('h3').textContent = prediction;
+            myCard.querySelector('p').textContent = predictionPercent;
+            return myCard;
+        }
+        
+        const predictionCard = makeCard(predictionText, percent);
+        const forecasts = document.querySelector('.forecasts');
+        forecasts.append(predictionCard);  
+    })
+});
