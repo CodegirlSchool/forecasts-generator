@@ -17,16 +17,14 @@ buttonClick.addEventListener('click', function(){
     }
     const title = document.querySelector('.current-forecast h1');
     title.textContent = predictionText;
-    console.log(title);
 
     const percent = forecastGenerate(0, 100);
     const paragraph = document.querySelector('.current-forecast p');
     paragraph.textContent = percent + '%';
 
-    buttonClick.addEventListener('click', function(){
-        const card = document.querySelector('#forecast-item');
-        function makeCard (prediction, predictionPercent) {
-            const myCard = card.content.cloneNode(true);
+    const card = document.querySelector('#forecast-item');
+    function makeCard (prediction, predictionPercent) {
+      const myCard = card.content.cloneNode(true);
             myCard.querySelector('h3').textContent = prediction;
             myCard.querySelector('p').textContent = predictionPercent;
             return myCard;
@@ -35,5 +33,4 @@ buttonClick.addEventListener('click', function(){
         const predictionCard = makeCard(predictionText, percent);
         const forecasts = document.querySelector('.forecasts');
         forecasts.append(predictionCard);  
-    })
 });
